@@ -5,12 +5,12 @@ This module is part of a bigger project that uses this library for remote commun
 
 This library implements JSON-RPC 2.0 communication protocol (spec: https://www.jsonrpc.org/specification) over sockets, using ZeroMQ.
 
-#Goal Diagram
+# Goal Diagram
 ![](diagrams/goaldiagram.png)<br>
 The server and the client are the actors. Receiving and sending requests, notifications and responses are the goals of the serves and the client. These goals are reached thanks to the showed tasks.<br>
 The diagram was required to be in Italian.
 
-#Data Dictionary
+# Data Dictionary
 
 | Name         | Description                                                                                                                                                                                                 | Relations | Examples                                                                                                                                 | Attributes                                       |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
@@ -19,5 +19,5 @@ The diagram was required to be in Italian.
 | Notification | ID-less request. It's a request that doesn't require a response.                                                                                                                                            |           | {"jsonrpc": "2.0", "method": "update", "params": \[1,2,3,4,5\]}<br><br>{"jsonrpc": "2.0", "method": "foobar"}                            | jsonrpc (always “2.0”)<br>method<br>params       |
 | Error        | It's one of the member in a response when the server encounters an error.<br>It specifies the type of error with a code, an error message and optionally other meta-data about the error.                      | Response  | "error": {"code": -32601, "message": "Method not found"}<br><br>"error": {"code": -32700, "message": "Parse error"}                      | code<br>message<br>data                          |
 
-#Class Diagram
+# Class Diagram
 ![](diagrams/classDiagram.jpeg)
